@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .done {
+      color: gray;
+      text-decoration: line-through;
+    }
+  </style>
+  <body>
+    <div id="app">
+      <input type="text" v-model="title" @keydown.enter="addTodo" />
+
+      <ul v-if='todos.length'>
+        <li v-for="(todo, index) in todos" :key="index">
+          <input type="checkbox" v-model="todo.done" />
+          <span :class="{done: todo.done}">{{todo.title}}</span>
+        </li>
+      </ul>
+
+      <div v-else>
+        暂无数据
+      </div>
+
+      <div>{{active}} / {{all}}</div>
+
+      <div>
+        全选：
+        <input type="checkbox" v-model="allDone" />
+      </div>
+      
+      <button v-if="active < all" @click="clear">clear</button>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+      const App = {
+        data() {
+          return {
+            title: '',
+            todos: [
+              {
+                title: '吃饭',
+                done: false,
+              },
+              {
+                title: '睡觉',
+                done: false,
+              },
+            ],
+          }
+        },
+        computed: {
+          active() {
+            return this.todos.filter(v => !v.done).length
+          },
+          all() {
+            return this.todos.length
+          },
+          allDone: {
+            get: function () {
+              return this.active === 0
+            },
+            set: function (val) {
+              this.todos.forEach(todo => {
+                todo.done = val
+              })
+            },
+          },
+        },
+        methods: {
+          addTodo() {
+            this.todos.push({
+              title: this.title,
+              done: false,
+            })
+            this.title = ''
+          },
+          clear() {
+            this.todos = this.todos.filter(v => !v.done)
+            // for (let i = 0; i < this.todos.length; i++) {
+            //   if (this.todos[i].done) {
+            //     this.todos.splice(i, 1)
+            //     i--
+            //   }
+            // }
+          },
+        },
+      }
+
+      Vue.createApp(App).mount('#app')
+    </script>
+  </body>
+</html>
