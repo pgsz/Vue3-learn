@@ -16,12 +16,17 @@
       <span>{{ active }} / {{ all }}</span>
     </div>
     <div class="mouse">x: {{ x }} --- y: {{ y }}</div>
+    <button @click="loading">改变图标</button>
+    <button @click="toggle">切换全屏</button>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watchEffect } from 'vue'
 import { useMouse } from '../utils/mouse'
+import { useStorage } from '../utils/useStorage'
+import useFavicon from '../utils/useFavicon'
+import { useFullscreen } from '@vueuse/core'
 
 let { x, y } = useMouse()
 
@@ -31,12 +36,26 @@ function add() {
   count.value++
   color.value = Math.random() > 0.5 ? 'blue' : 'red'
 }
+// watchEffect(() => {
+//   console.log('数据被修改了', count.value)
+// })
+
+// let obj = ref({
+//   count: 1
+// })
+// let double = computed(() => obj.count * 2)
+
+// obj.count = 2
+
+// watchEffect(() => {
+//   console.log('数据被修改了', obj.count, double.value)
+// })
 
 let { title, todos, addTodo, clear, active, all, allDone } = useTodo()
 
 function useTodo() {
   let title = ref('')
-  let todos = ref([{ title: '学习', done: false }])
+  let todos = useStorage('todos')
 
   function addTodo() {
     todos.value.push({
@@ -69,6 +88,16 @@ function useTodo() {
 
   return { title, todos, addTodo, clear, active, all, allDone }
 }
+
+let { favicon, reset } = useFavicon()
+function loading() {
+  favicon.value = '/loading.png'
+  setTimeout(() => {
+    reset()
+  }, 2000)
+}
+
+const { toggle } = useFullscreen()
 </script>
 
 <style scoped>
