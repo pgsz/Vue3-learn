@@ -9,11 +9,13 @@
     <Todolist></Todolist>
     <!-- <Rate :value="score" @update-rate="updateRate"></Rate> -->
     <Rate v-model="score">课程评分</Rate>
+    <Count></Count>
   </div>
 </template>
 <script setup>
 import Todolist from '../components/Todolist.vue'
 import Rate from '../components/Rate.vue'
+import Count from '../components/Count.vue'
 
 import { ref } from 'vue'
 
