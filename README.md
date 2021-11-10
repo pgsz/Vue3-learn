@@ -116,3 +116,6 @@ npm install vuex@next
 
 使用 state 定义数据，使用 mutation 定义修改数据的逻辑，并且在组件中使用 commit 去调用 mutations。在此基础之上，还可以用 getters 去实现 Vuex 世界的计算属性，使用 action 来去定义异步任务，并且在内部调用 mutation 去同步数据。
 
+## vue-router
+
+![](images/vue-router.png)
