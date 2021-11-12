@@ -119,3 +119,8 @@ npm install vuex@next
 ## vue-router
 
 ![](images/vue-router.png)
+
+
+
+## 查询一个页面有多少 HTML 标签
+new Set([...document.querySelectorAll('*')].map(n=>n.nodeName)).size
