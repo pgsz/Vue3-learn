@@ -120,6 +120,11 @@ npm install vuex@next
 
 ![](images/vue-router.png)
 
+## JSX
+
+JSX 可以支持更动态的需求。而 template 则因为语法限制原因，不能够像 JSX 那样可以支持更动态的需求。
+JSX 可以一个文件内返回多个组件
+我们实现业务需求的时候，也是优先使用 template，动态性要求较高的组件使用 JSX 实现
 
 
 ## 查询一个页面有多少 HTML 标签

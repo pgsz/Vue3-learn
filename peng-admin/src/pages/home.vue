@@ -10,12 +10,15 @@
     <!-- <Rate :value="score" @update-rate="updateRate"></Rate> -->
     <Rate v-model="score">课程评分</Rate>
     <Count></Count>
+    <Heading :level="1">hello jsx</Heading>
   </div>
 </template>
 <script setup>
 import Todolist from '../components/Todolist.vue'
+// import Todolist from '../components/Todolist.jsx'
 import Rate from '../components/Rate.vue'
 import Count from '../components/Count.vue'
+import Heading from '../components/Heading'
 
 import { ref } from 'vue'
 
