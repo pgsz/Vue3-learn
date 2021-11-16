@@ -1,0 +1,19 @@
+2：查看npm源
+npm config get registry
+3：设置npm源为淘宝
+npm config set registry http://registry.npm.taobao.org/
+
+3：git 更新  windows
+git update-git-for-windows
+
+echo "# my-vue1.x" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git地址
+git push -u origin main
+
+修改本地文件，还原状态
+单个文件： git checkout + 文件名
+整个目录： git checkout . 
