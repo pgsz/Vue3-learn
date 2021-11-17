@@ -19,8 +19,8 @@ import Todolist from '../components/Todolist.vue'
 // import Todolist from '../components/Todolist.jsx'
 import Rate from '../components/Rate.vue'
 import Count from '../components/Count.vue'
-import Heading from '../components/Heading'
 import JsonP from '../components/JsonP.vue'
+import Heading from '../components/Heading'
 
 import { ref } from 'vue'
 

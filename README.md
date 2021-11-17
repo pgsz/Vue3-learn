@@ -142,11 +142,40 @@ const app = createApp({})
 app.config.globalProperties.$http = () => {}
 ```
 
+### teleport
+```js
+ <teleport to="body">
+    内容
+ </teleport>
+```
+
+## composition API
+
+  - setup
+  - ref
+  - reactive
+  - watchEffect
+  - watch
+  - computed
+  - toRefs  解构响应式对象数据
+  - 生命周期的 hooks
+
+### provide 与 inject
+
+### vue add typescript
+
 ## 请求
 
 正常请求： axios
 
 jsonp接口： fetch-jsonp [github](https://github.com/camsong/fetch-jsonp)
+
+
+### sass
+
+vite: npm i sass -D
+
+webpack: npm i node-sass sass-loader -D
 
 
 ## 查询一个页面有多少 HTML 标签
