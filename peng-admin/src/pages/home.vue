@@ -11,6 +11,7 @@
     <Rate v-model="score">课程评分</Rate>
     <Count></Count>
     <Heading :level="1">hello jsx</Heading>
+    <JsonP></JsonP>
   </div>
 </template>
 <script setup>
@@ -19,6 +20,7 @@ import Todolist from '../components/Todolist.vue'
 import Rate from '../components/Rate.vue'
 import Count from '../components/Count.vue'
 import Heading from '../components/Heading'
+import JsonP from '../components/JsonP.vue'
 
 import { ref } from 'vue'
 

@@ -128,6 +128,26 @@ JSX 可以支持更动态的需求。而 template 则因为语法限制原因，
 JSX 可以一个文件内返回多个组件
 我们实现业务需求的时候，也是优先使用 template，动态性要求较高的组件使用 JSX 实现
 
+## API
+
+### globalProperties
+
+添加一个可以在应用的任何组件实例中访问的全局 property
+```js
+// 之前(Vue 2.x)
+Vue.prototype.$http = () => {}
+
+// 之后(Vue 3.x)
+const app = createApp({})
+app.config.globalProperties.$http = () => {}
+```
+
+## 请求
+
+正常请求： axios
+
+jsonp接口： fetch-jsonp [github](https://github.com/camsong/fetch-jsonp)
+
 
 ## 查询一个页面有多少 HTML 标签
 new Set([...document.querySelectorAll('*')].map(n=>n.nodeName)).size
