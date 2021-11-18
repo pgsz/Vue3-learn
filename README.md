@@ -153,11 +153,20 @@ app.config.globalProperties.$http = () => {}
 
   - setup
   - ref
-  - reactive
+    - 定义简单数据类型为响应式数据
+  - reactive  
+    - 定义一个复杂数据类型，成为响应式数据
   - watchEffect
   - watch
   - computed
-  - toRefs  解构响应式对象数据
+  - toRef  
+    - 转换响应式对象中某个属性为单独响应式数据，并且值是关联的
+    - 从响应式数据对象中解构出的属性数据，不再是响应式数据
+    - const xx = roRef(obj, 'xx')
+    - 使用场景：有一个响应式对象数据，但是模版中只需要使用其中一项数据。
+  - toRefs  
+    - 转换响应式对象中所有属性为单独响应式数据，对象成普通对象，值是关联的
+    - 常用于解构 reactive 定义对象
   - 生命周期的 hooks
 
 ### provide 与 inject
@@ -165,7 +174,7 @@ app.config.globalProperties.$http = () => {}
 ### typescript
 
  vue add typescript
- 
+
 
 ## 请求
 
