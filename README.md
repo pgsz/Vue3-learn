@@ -162,7 +162,10 @@ app.config.globalProperties.$http = () => {}
 
 ### provide 与 inject
 
-### vue add typescript
+### typescript
+
+ vue add typescript
+ 
 
 ## 请求
 

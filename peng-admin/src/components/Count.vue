@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="count">
     <p @click="add">{{ count }}</p>
     <p @click="asyncAdd">异步 actions：{{ count }}</p>
   </div>
@@ -22,4 +22,11 @@ function asyncAdd() {
   store.dispatch('asyncAdd')
 }
 </script>
-<style scoped></style>
+<style lang="scss" scoped>
+.count {
+  --color: red;
+  p {
+    color: var(--color)
+  }
+}
+</style>

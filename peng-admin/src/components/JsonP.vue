@@ -43,6 +43,9 @@ export default {
       }, 200)
     },
   },
+  beforeunMount() {
+    //
+  },
 }
 </script>
 <style lang="scss" scoped>
