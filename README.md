@@ -124,9 +124,10 @@ npm install vuex@next
 
 ## JSX
 
-JSX 可以支持更动态的需求。而 template 则因为语法限制原因，不能够像 JSX 那样可以支持更动态的需求。
-JSX 可以一个文件内返回多个组件
-我们实现业务需求的时候，也是优先使用 template，动态性要求较高的组件使用 JSX 实现
+   - JSX 可以支持更动态的需求。而 template 则因为语法限制原因，不能够像 JSX 那样可以支持更动态的需求。
+  - JSX 可以一个文件内返回多个组件
+  - 我们实现业务需求的时候，也是优先使用 template，动态性要求较高的组件使用 JSX 实现
+  - template 牺牲灵活性换来了静态标记的收益
 
 ## API
 
@@ -186,9 +187,10 @@ app.config.globalProperties.$http = () => {}
 
 ## 请求
 
-正常请求： axios
+  - 正常请求： axios
+    - npm i axios -D
 
-jsonp接口： fetch-jsonp [github](https://github.com/camsong/fetch-jsonp)
+  - jsonp接口： fetch-jsonp [github](https://github.com/camsong/fetch-jsonp)
 
 
 ### sass
