@@ -17,3 +17,5 @@ git push -u origin main
 修改本地文件，还原状态
 单个文件： git checkout + 文件名
 整个目录： git checkout . 
+
+接口 406 在 inddex.html 入口文件加入 <meta name="referrer" content="no-referrer"/>
