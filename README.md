@@ -154,11 +154,15 @@ app.config.globalProperties.$http = () => {}
   - setup
   - ref
     - 定义简单数据类型为响应式数据
-  - reactive  
+    - 单个元素：先申明ref响应式数据，返回给模版使用，通过ref绑定数据
+    - 遍历的元素：先定义一个空数组，定一个函数获取元素，返回给模版使用，通过ref绑定这个函数
+  - reactive
     - 定义一个复杂数据类型，成为响应式数据
   - watchEffect
   - watch
   - computed
+    - 给 computed 传入函数，返回值就是计算属性的值
+    - 给 computed 传入对象，get获取计算属性的值，set监听计算属性改变
   - toRef  
     - 转换响应式对象中某个属性为单独响应式数据，并且值是关联的
     - 从响应式数据对象中解构出的属性数据，不再是响应式数据
@@ -167,6 +171,10 @@ app.config.globalProperties.$http = () => {}
   - toRefs  
     - 转换响应式对象中所有属性为单独响应式数据，对象成普通对象，值是关联的
     - 常用于解构 reactive 定义对象
+  - provide
+    - 提供数据和函数给后代组件使用
+  - inject
+    - 给当前组件注入provide提供的数据和函数
   - 生命周期的 hooks
 
 ### provide 与 inject
