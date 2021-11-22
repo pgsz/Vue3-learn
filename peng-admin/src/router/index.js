@@ -22,4 +22,9 @@ const router = createRouter({
   routes,
 })
 
+// router.beforeEach((to, from, next) => {
+//   if (to.path !== '/about') next({ path: '/about' })
+//   else next()
+// })
+
 export default router
