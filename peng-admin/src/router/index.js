@@ -1,6 +1,9 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 // import { createRouter, createWebHashHistory } from './grouter'
 
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+
 import Home from '../pages/home.vue'
 import About from '../pages/about.vue'
 
@@ -22,9 +25,15 @@ const router = createRouter({
   routes,
 })
 
-// router.beforeEach((to, from, next) => {
-//   if (to.path !== '/about') next({ path: '/about' })
-//   else next()
-// })
+// 全局前置守卫
+router.beforeEach((to, from, next) => {
+  NProgress.start()
+  next()
+})
+
+// 全局后置钩子
+router.afterEach(() => {
+  NProgress.done()
+})
 
 export default router

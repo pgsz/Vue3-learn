@@ -199,6 +199,12 @@ vite: npm i sass -D
 
 webpack: npm i node-sass sass-loader -D
 
+## 引入第三方库注意事项
+
+  - 使用之初考虑到项目的长期可维护性
+  - 少用全局变量
+  - 注意按需加载
+
 
 ## 查询一个页面有多少 HTML 标签
 new Set([...document.querySelectorAll('*')].map(n=>n.nodeName)).size
