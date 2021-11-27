@@ -208,3 +208,43 @@ webpack: npm i node-sass sass-loader -D
 
 ## 查询一个页面有多少 HTML 标签
 new Set([...document.querySelectorAll('*')].map(n=>n.nodeName)).size
+
+## 性能优化
+
+网络请求优化和代码效率优化
+
+- FCP： First Contentful Paint  页面上呈现第一个 DOM 元素的时间
+- TTL： Time to Interactive  页面可以开始交互时间
+- LCP:  Largest Contentful Paint  页面视口上最大的图片或文本渲染的时间
+
+```shell
+npm i rollup-plugin-visualizer -D
+```
+
+```js
+vite.config.js 引入：
+
+import { visualizer } from 'rollup-plugin-visualizer'
+
+plugins: [
+  visualizer()
+]
+```
+
+客户端性能检测：
+```js
+let timing = window.performance && window.performance.timing
+let navigation = window.performance && window.performance.navigation
+
+DNS 解析：
+let dns = timing.domainLookupEnd - timing.domainLookupStart
+
+总体网络交互耗时：
+let network = timing.responseEnd - timing.navigationStart
+
+渲染处理：
+let processing = (timing.domComplete || timing.domLoading) - timing.domLoading
+
+可交互：
+let active = timing.domInteractive - timing.navigationStart
+```
