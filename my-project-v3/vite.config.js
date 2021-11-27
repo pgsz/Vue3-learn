@@ -1,5 +1,8 @@
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
+
+// 查看打包之后文件的大小
+import { visualizer } from 'rollup-plugin-visualizer'
 // import styleImport from 'vite-plugin-style-import'
 // import ViteComponents, { ElementPlusResolver } from 'vite-plugin-components'
 
@@ -23,6 +26,7 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       vue(),
+      visualizer()
       // note： 按需加载 element-plus 组件 有效；但是对 ElMessage  这类组件无效
       // ViteComponents({
       //   customComponentResolvers: [ElementPlusResolver()],
