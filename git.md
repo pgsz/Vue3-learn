@@ -45,3 +45,12 @@ git config --global user.name "Your Name"
 ## git log 退出方法
 
   按字母 **Q** 即可退出
+
+
+## git 修改 commit 提交信息
+
+1. 修改最后一次的提交
+
+     ```js
+     git commit --amend -m '新的修改提交信息'
+     ```
