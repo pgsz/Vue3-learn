@@ -217,6 +217,8 @@ new Set([...document.querySelectorAll('*')].map(n=>n.nodeName)).size
 - TTL： Time to Interactive  页面可以开始交互时间
 - LCP:  Largest Contentful Paint  页面视口上最大的图片或文本渲染的时间
 
+### rollup-plugin-visualizer
+
 ```shell
 npm i rollup-plugin-visualizer -D
 ```
@@ -231,7 +233,8 @@ plugins: [
 ]
 ```
 
-客户端性能检测：
+### 客户端性能检测
+
 ```js
 let timing = window.performance && window.performance.timing
 let navigation = window.performance && window.performance.navigation
@@ -248,3 +251,7 @@ let processing = (timing.domComplete || timing.domLoading) - timing.domLoading
 可交互：
 let active = timing.domInteractive - timing.navigationStart
 ```
+
+### 好项目
+
+STAR： Situation（情景）、Task（任务）、Action（行动）和 Result（结果）
