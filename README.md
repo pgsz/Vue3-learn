@@ -180,9 +180,30 @@ app.config.globalProperties.$http = () => {}
 
 ### provide 与 inject
 
-### typescript
+## typescript
 
- vue add typescript
+安装：
+```shell
+vue add typescript
+```
+
+
+## eslint
+
+安装：
+```shell
+npm i eslint -D
+```
+项目根目录执行:
+```shell
+npx eslint --init
+```
+
+然后根据提示创建配置文件:
+![](images/eslint-init.png)
+
+即可生成 eslint 文件：
+![](images/eslint-file.png)
 
 
 ## 请求
