@@ -226,8 +226,12 @@ npx husky add .husky/commit-msg "node scripts/verifyCommit.js"
 yarn husky add .husky/commit-msg "node scripts/verifyCommit.js" 
 ```
 
-在 verifyCommit 文件里面添加：
+在 verifyCommit 文件里面添加：[见vue3源码配置](https://github.com/vuejs/vue-next/blob/master/scripts/verifyCommit.js)
+
 feat 代表新功能，docs 代表文档，perf 代表性能等
+
+确保提交日志符合 `type(scope): message` 格式：[vue3提交记录](https://github.com/vuejs/vue-next/commits/master)
+
 ```js
 const msg = require('fs')
   .readFileSync('.git/COMMIT_EDITMSG', 'utf-8')
@@ -255,7 +259,9 @@ if (!commitRE.test(msg)) {
 ```
 
 `commit-msg`: 代码执行提交的时候执行；
+
 `pre-commit`: 代码执行之前的钩子； 可以执行 `ESLint` 代码格式；
+
 这样在 git commit 的同时先进行 ESLint 校验，然后再执行 commit 的 log 信息格式检查
 
 ```shell
@@ -266,7 +272,7 @@ npx husky add .husky/pre-commit "npm run lint"
 
 ![](images/commit-husky-success.png)
 
-提交成功:
+提交失败:
 
 ![](images/commit-husky-fail.png)
 
