@@ -1,4 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+import MeComponents from './components'
+
+const app = createApp(App)
+
+app.use(MeComponents)
+
+app.mount('#app')
