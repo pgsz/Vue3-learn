@@ -86,9 +86,13 @@ createApp(App).use(router).mount('#app')
 
 ### ref 和 reactive 的区别
 
-- reactive 和 ref 都是用来定义响应式数据的 reactive更推荐去定义复杂的数据类型 ref 更推荐定义基本类型
-- ref 和 reactive 本质我们可以简单的理解为ref是对reactive的二次包装, ref定义的数据访问的时候要多一个.value
-- 使用ref定义基本数据类型,ref也可以定义数组和对象。
+- reactive 和 ref 都是用来定义响应式数据的 reactive更推荐去定义复杂的数据类型 ref 更推荐定义基本类型。
+- ref 和 reactive 本质我们可以简单的理解为ref是对reactive的二次包装, ref定义的数据访问的时候要多一个.value。
+- 使用ref定义基本数据类型；ref也可以定义数组和对象，内部会直接调用 reactive 来实现。
+
+
+在读取数据的时候通过`track`收集函数依赖关系，把整个对象和`effect`注册函数的依赖关系全部存储在一个依赖图中。
+![](./images/vue-effect.png)
 
 ### watch 和 watchEffect 的区别
 
@@ -312,7 +316,18 @@ webpack: npm i node-sass sass-loader -D
 
 
 ## 查询一个页面有多少 HTML 标签
+```js
 new Set([...document.querySelectorAll('*')].map(n=>n.nodeName)).size
+```
+
+获取前三
+```js
+let ret = Object.entries([...document.querySelectorAll('*')].map(node => node.nodeName).reduce((ret,n)=>{
+    ret[n] = ret[n]?ret[n]+1:1
+    return ret
+},{})).sort((a,b)=>b[1]-a[1]).slice(0,3)
+console.table(ret)
+```
 
 ## 性能优化
 
@@ -360,3 +375,10 @@ let active = timing.domInteractive - timing.navigationStart
 ### 好项目
 
 STAR： Situation（情景）、Task（任务）、Action（行动）和 Result（结果）
+
+
+### 看代码小技巧
+
+  - 首次查看源码的时候，先把一些无用的信息去除，方便自己梳理主题的逻辑
+    - `__COMPAT__`代码是用来兼容 `Vue2`
+    - `__DEV__`代码是用来调试的
